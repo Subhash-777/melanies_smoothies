@@ -3,8 +3,19 @@ import streamlit as st
 from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
-# Get Snowflake session (ONLY works in Snowflake Streamlit)
-session = get_active_session()
+from snowflake.snowpark import Session
+
+connection_parameters = {
+    "account": "UYWIPHW-QBB73348",      # e.g. xy12345.ap-south-1
+    "user": "SUBHASH",
+    "password": "Subhash@74327432",
+    "role": "SYSADMIN",            # e.g. ACCOUNTADMIN
+    "warehouse": "COMPUTE_WH",  # e.g. COMPUTE_WH
+    "database": "SMOOTHIES",
+    "schema": "PUBLIC"
+}
+
+session = Session.builder.configs(connection_parameters).create()
 
 # App Title
 st.title("🥤 Customize Your Smoothie! 🥤")
