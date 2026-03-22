@@ -33,11 +33,10 @@ ingredients_list = st.multiselect(
 # Process selection
 if ingredients_list:
 
-    ingredients_string = ''
+    ingredients_string = ', '.join(ingredients_list)
 
     for fruit_chosen in ingredients_list:
-        ingredients_string += ', ' + fruit_chosen
-        # Get SEARCH_ON value
+
         search_on = pd_df.loc[
             pd_df['FRUIT_NAME'] == fruit_chosen,
             'SEARCH_ON'
@@ -45,7 +44,6 @@ if ingredients_list:
 
         st.write(f"The search value for {fruit_chosen} is {search_on}")
 
-        # API Call using SEARCH_ON
         st.subheader(f"{fruit_chosen} Nutrition Information")
 
         response = requests.get(
