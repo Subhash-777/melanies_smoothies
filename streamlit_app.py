@@ -33,10 +33,10 @@ ingredients_list = st.multiselect(
 # Process selection
 if ingredients_list:
 
-    ingredients_string = ', '.join(ingredients_list)
+    ingredients_string = ''
 
     for fruit_chosen in ingredients_list:
-
+        ingredients_string += ', ' + fruit_chosen
         # Get SEARCH_ON value
         search_on = pd_df.loc[
             pd_df['FRUIT_NAME'] == fruit_chosen,
