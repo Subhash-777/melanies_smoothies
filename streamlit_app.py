@@ -27,7 +27,7 @@ ingredients_list = st.multiselect(
 if ingredients_list:
 
     # Convert Row → string
-    ingredients_string = ', '.join([row['FRUIT_NAME'] for row in ingredients_list])
+    ingredients_string = ', '.join(ingredients_list)
 
     # Submit button
     if st.button('Submit Order'):
